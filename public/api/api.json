@@ -1,0 +1,76 @@
+{
+  "campaigns": [
+    {
+      "id": 1,
+      "title": "Winter Clothes for Dhaka",
+      "image": "https://media.istockphoto.com/id/1372606861/photo/volunteers-hand-giving-donations-to-a-person-at-a-community-center.jpg?s=612x612&w=0&k=20&c=wB_AfqhVewFDXEpTjHIggOwS3BVXVHktNLBxgQAcl2M=",
+      "description": "Collecting warm clothes for underprivileged people in Dhaka.",
+      "status": "active",
+      "contactinfo": "01812345678",
+      "division": "Dhaka"
+    },
+    {
+      "id": 2,
+      "title": "Summer Donation Chattogram",
+      "image": "https://media.istockphoto.com/id/1362787530/photo/donation-box-with-stuff.jpg?s=612x612&w=0&k=20&c=AFX1S73Ml80a5S09JTmR8q9WWhEEonUuQJfG-tuzRk0=",
+      "description": "Light summer clothes for people in slum areas of Chattogram.",
+      "status": "completed",
+      "contactinfo": "01723456789",
+      "division": "Chattogram"
+    },
+    {
+      "id": 3,
+      "title": "Sylhet Flood Relief Clothes",
+      "image": "https://media.istockphoto.com/id/1314806165/photo/girl-puts-in-a-box-with-donations-items-volunteering.jpg?s=612x612&w=0&k=20&c=AUKJs9FLjgSn8WVZJCD1H_mSLslMikwQbq1I_qnP8iA=",
+      "description": "Clothing support for flood victims in Sylhet.",
+      "status": "active",
+      "contactinfo": "01634567890",
+      "division": "Sylhet"
+    },
+    {
+      "id": 4,
+      "title": "Rajshahi Old Age Home Support",
+      "image": "https://media.istockphoto.com/id/1412618508/photo/woman-putting-her-clothes-in-a-delivery-box.jpg?s=612x612&w=0&k=20&c=Q33dfmUObVOr_2yG1r5mHeFkuLK2gAcsUUUxEztiCwg=",
+      "description": "Warm and soft clothes for elderly people in Rajshahi.",
+      "status": "active",
+      "contactinfo": "01545678901",
+      "division": "Rajshahi"
+    },
+    {
+      "id": 5,
+      "title": "Khulna Coastal Aid Clothes",
+      "image": "https://media.istockphoto.com/id/2171791626/photo/close-up-of-volunteers-arranging-clothes-for-donation-outdoors.jpg?s=612x612&w=0&k=20&c=eXnfJBe5MtDjUSb_yaUqaTDCb7Zcr86LpwWqdgnDAwI=",
+      "description": "Distributing clothes to coastal families in Khulna affected by cyclones.",
+      "status": "completed",
+      "contactinfo": "01956789012",
+      "division": "Khulna"
+    },
+    {
+      "id": 6,
+      "title": "Barisal Children’s Donation",
+      "image": "https://media.istockphoto.com/id/2184241050/photo/senior-caucasian-couple-giving-clothes-for-donation-outdoors.jpg?s=612x612&w=0&k=20&c=4yygAyRc8FxyWEyV-U0k_8f3MhgB6wH7gZumNfEma2Y=",
+      "description": "Providing children’s clothes for poor families in Barisal.",
+      "status": "active",
+      "contactinfo": "01867890123",
+      "division": "Barisal"
+    },
+    {
+      "id": 7,
+      "title": "Mymensingh Rural Support",
+      "image": "https://media.istockphoto.com/id/1321272684/photo/mother-and-daughter-filling-a-boxes-with-clothes-for-donations.jpg?s=612x612&w=0&k=20&c=00atYVgULDTuqKPXqumrbID1dhEJV9PA7SP7LVOi5xs=",
+      "description": "Helping rural families with clothing in Mymensingh.",
+      "status": "pending",
+      "contactinfo": "01778901234",
+      "division": "Mymensingh"
+    },
+    {
+      "id": 8,
+      "title": "Rangpur Winter Blankets",
+      "image": "https://media.istockphoto.com/id/1283154274/photo/woman-holding-cardboard-donation-box-full-with-folded-clothes.jpg?s=612x612&w=0&k=20&c=bqJFhv_hRXV3Milqrmuh54eyIiScjgqP6z0iwnnT84I=",
+      "description": "Distributing blankets and warm clothes in cold areas of Rangpur.",
+      "status": "active",
+      "contactinfo": "01689012345",
+      "division": "Rangpur"
+    }
+  ]
+}
