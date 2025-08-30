@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 
 const CampaignCard = ({camp}) => {
     return (
@@ -14,7 +15,7 @@ const CampaignCard = ({camp}) => {
                 </h2>
                 <p>{camp.description}</p>
                 <div className="card-actions justify-end">
-                    <div className="badge badge-outline hover:bg-sky-200">Donate</div>
+                    <div className="badge badge-outline hover:bg-sky-200"><Link to={`/campaign/${camp.id}`}>Donate</Link></div>
                     
                 </div>
             </div>

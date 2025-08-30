@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 
 const Hero = () => {
     return (
@@ -16,7 +17,7 @@ const Hero = () => {
                         <p className="mb-5">
                             Your gently used clothes can bring warmth, dignity, and hope to those in need. Whether it’s a cozy sweater, a pair of jeans, or a child’s school uniform, every item you donate helps build a bridge between compassion and action.
                         </p>
-                        <button className="btn btn-primary">Donate Now</button>
+                        <button className="btn btn-primary"><Link to={'/campaigns'}>Donate Now</Link></button>
                     </div>
                 </div>
             </div>

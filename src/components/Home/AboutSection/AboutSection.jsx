@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutImage from '../../../assets/4934413.jpg'
+import { Link } from 'react-router';
 const AboutSection = () => {
     return (
         <section className="bg-gray-100 py-16">
@@ -39,7 +40,7 @@ const AboutSection = () => {
 
 
                     <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-                        Donate Now
+                        <Link to={'/campaigns'}>Donate</Link>
                     </button>
                 </div>
 
