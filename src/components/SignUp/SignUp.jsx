@@ -32,7 +32,9 @@ const SignUp = () => {
             setUser(res.user)
             toast.success("SignUp Successfull")
           }).catch(err=>{
-            toast.error("SignUp Failed")
+            // toast.error("SignUp Failed")
+            console.log(err);
+            
           })
     }
     return (

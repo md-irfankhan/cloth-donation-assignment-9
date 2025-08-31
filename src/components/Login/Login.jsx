@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 const Login = () => {
-    const {setUser,userLogin}=useContext(AuthContext)
+    const {setUser,userLogin,googleUser,user}=useContext(AuthContext)
     const handleLogin=(e)=>{
         e.preventDefault()
         const form = new FormData(e.target)
@@ -20,7 +20,8 @@ const Login = () => {
         })
 
     }
-
+    console.log(user);
+    
     const handleGoogle=()=>{
           googleUser()
           .then(res=>{

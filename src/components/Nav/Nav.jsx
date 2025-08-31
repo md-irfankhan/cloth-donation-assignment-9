@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Nav = () => {
+    const { user ,signOutUser} = useContext(AuthContext)
+    const handleLogOut=()=>{
+        signOutUser()
+        .then(res=>{
+            toast.success("LogOut Success")
+        })
+        .catch(err=>{
+            toast.error("LogOut unsuccessfull")
+        })
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -27,7 +40,36 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
+                {user ?
+                    <>
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        src={user.photoURL} />
+                                </div>
+                            </div>
+                            <ul
+                                tabIndex={0}
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                <li>
+                                    <a className="justify-between">
+                                        Profile
+                                        <span className="badge">New</span>
+                                    </a>
+                                </li>
+                                
+                                <li><a onClick={handleLogOut}>Logout</a></li>
+                            </ul>
+                        </div>
+
+
+
+                    </>:<Link to={'/login'} className="btn">Login</Link>
+                
+            }
+                
             </div>
         </div>
     );
