@@ -1,32 +1,59 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router';
+import { Link, Navigate, useNavigate } from 'react-router';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { useLocation } from 'react-router';
 const Login = () => {
-    const {setUser,userLogin,googleUser,user}=useContext(AuthContext)
+    const location=useLocation()
+    const navigate=useNavigate()
+    const [forgetEmail,setForgetEmail]=useState("")
+    const {setUser,loginUser,googleUser,user,forgetPass}=useContext(AuthContext)
+    if(user){
+        return <Navigate to={location.state?location.state:'/'}></Navigate>
+    }
     const handleLogin=(e)=>{
         e.preventDefault()
         const form = new FormData(e.target)
         const email = form.get('email')
         const password = form.get('password')
-        userLogin(email,password)
+        loginUser(email,password)
         .then(res=>{
             setUser(res.user)
             toast.success("Login Successfull")
+            navigate(location.state?location.state:'/')
         })
         .catch(err=>{
             toast.error("Login Failed")
         })
 
     }
+    const handleEmail=(e)=>{
+        setForgetEmail(e.target.value)
+        // console.log(e.target.value);
+        
+
+    }
+
+    const handleForget =()=>{
+          forgetPass(forgetEmail).then(res=>{
+            toast.success("Reset Email Sent")
+          }).catch(err=>{
+            toast.error("Sent Email Failed")
+            console.log(err);
+            
+          })
+    }
     console.log(user);
+    console.log(location?.state);
     
     const handleGoogle=()=>{
           googleUser()
           .then(res=>{
             setUser(res.user)
             toast.success("Login Successfull")
+            navigate(location?.state)
+
           }).catch(err=>{
             toast.error("Login Failed")
           })
@@ -47,11 +74,12 @@ const Login = () => {
                             <fieldset className="fieldset">
                                
                                 <label className="label">Email</label>
-                                <input name='email' type="email" className="input" placeholder="Email" />
+                                <input name='email' onChange={handleEmail} type="email" className="input" placeholder="Email" />
                                 <label className="label">Password</label>
                                 <input name='password' type="password" className="input" placeholder="Password" />
-                                <div>Don't have account? <Link to={'/signup'} className="link link-hover text-blue-400">SignUp Now</Link></div>
-                                <input type='submit' value={'SignUp'} className="btn btn-neutral mt-4"></input>
+                                <div><a onClick={handleForget} className="link link-hover text-blue-400">Forget Password</a></div>
+                                <div>Don't have account? <Link state={location?.state} to={'/signup'} className="link link-hover text-blue-400">SignUp Now</Link></div>
+                                <input type='submit' value={'Login'} className="btn btn-neutral mt-4"></input>
                             </fieldset>
                         </form>
                         <div class="divider">OR</div>

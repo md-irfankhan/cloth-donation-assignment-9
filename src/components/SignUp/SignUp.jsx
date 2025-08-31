@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const SignUp = () => {
-    const { createUser, userProfileUpdate,googleUser,setUser } = useContext(AuthContext)
+    const location =useLocation()
+    const navigate =useNavigate()
+    const { createUser, userProfileUpdate,googleUser,setUser,user } = useContext(AuthContext)
+    console.log(location.state);
+    
     const handleSignUp = (e) => {
         e.preventDefault()
         const form = new FormData(e.target)
@@ -15,13 +19,20 @@ const SignUp = () => {
         createUser(email, password)
             .then(res => {
                 userProfileUpdate(name, photo).then(res => {
-                    setUser(res.user)
+                    console.log(res);
+                    
+                    // setUser(res.user)
                     toast.success("User SignUp Successfull")
+                    navigate(location.state?location.state:'/')
                 }).catch(err => {
-                    toast.error("SignUp Failed")
+                    toast.error("SignUp Failed...")
+                    console.log(err);
+                    
                 })
             }).catch(err => {
                 toast.error("SignUp Failed")
+                console.log(err);
+                
             })
 
     }
@@ -31,9 +42,11 @@ const SignUp = () => {
           .then(res=>{
             setUser(res.user)
             toast.success("SignUp Successfull")
+            navigate(location.state?location.state:'/')
           }).catch(err=>{
             // toast.error("SignUp Failed")
             console.log(err);
+
             
           })
     }
@@ -59,7 +72,7 @@ const SignUp = () => {
                                 <input name='email' type="email" className="input" placeholder="Email" />
                                 <label className="label">Password</label>
                                 <input name='password' type="password" className="input" placeholder="Password" />
-                                <div>Already Registered? <Link to={'/login'} className="link link-hover text-blue-400">Login Now</Link></div>
+                                <div>Already Registered? <Link state={location?.state} to={'/login'} className="link link-hover text-blue-400">Login Now</Link></div>
                                 <input type='submit' value={'SignUp'} className="btn btn-neutral mt-4"></input>
                             </fieldset>
                         </form>

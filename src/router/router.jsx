@@ -5,6 +5,8 @@ import Campaigns from "../components/Campaigns/Campaigns";
 import CampaignDetails from "../components/CampaignDetails/CampaignDetails";
 import SignUp from "../components/SignUp/SignUp";
 import Login from "../components/Login/Login";
+import Private from "../components/Private/Private";
+import Profile from "../Profile/Profile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
       {
         path:"/campaign/:id",
         loader:()=>fetch('/api/api.json'),
-        element:<CampaignDetails></CampaignDetails>
+        element:<Private><CampaignDetails></CampaignDetails></Private>
       },
       {
         path:"/signup",
@@ -35,6 +37,9 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login></Login>
+      },{
+        path:"/profile",
+        element:<Private><Profile></Profile></Private>
       }
     ]
   }
